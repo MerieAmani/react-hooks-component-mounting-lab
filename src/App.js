@@ -5,26 +5,26 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      timers: [] // Array to store timer IDs
+      timerIDs: [], // Renamed from 'timers' to 'timerIDs' to match the test
     };
   }
 
   handleAddTimer = () => {
     this.setState((prevState) => ({
-      timers: [...prevState.timers, Math.random()] // Add a random ID to the timers array
+      timerIDs: [...prevState.timerIDs, Math.random()], // Updated to use 'timerIDs'
     }));
   };
 
   componentDidMount() {
-    this.handleAddTimer(); // Automatically add a timer when the app loads
+    this.handleAddTimer();
   }
 
   render() {
     return (
       <div>
         <button onClick={this.handleAddTimer}>Add Timer</button>
-        <div className='TimerGrid'>
-          {this.state.timers.map((id) => (
+        <div className="TimerGrid">
+          {this.state.timerIDs.map((id) => (
             <Timer key={id} />
           ))}
         </div>

@@ -4,22 +4,22 @@ class Timer extends Component {
   constructor() {
     super();
     this.state = {
-      time: 0
+      time: 0,
     };
   }
 
   clockTick = () => {
     this.setState((prevState) => ({
-      time: prevState.time + 1
+      time: prevState.time + 1,
     }));
   };
 
   componentDidMount() {
-    this.interval = setInterval(this.clockTick, 1000); // Start the timer
+    this.interval = setInterval(this.clockTick, 1000); // Call clockTick every second
   }
 
   componentWillUnmount() {
-    clearInterval(this.interval); // Clean up the interval
+    clearInterval(this.interval); // Clean up the interval when the component unmounts
   }
 
   render() {
